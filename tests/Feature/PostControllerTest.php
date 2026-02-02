@@ -19,7 +19,7 @@ test('can retrieve a list of posts', function () {
     $response = $this->get('/posts');
 
     $response->assertStatus(200);
-    $response->assertViewIs('posts.index');
+    $response->assertViewIs('home');
     $response->assertSee($title);
 
     $this->assertDatabaseCount('posts', 5);
@@ -29,6 +29,6 @@ test('can see the correct message if there are no posts', function () {
     $response = $this->get('/posts');
 
     $response->assertStatus(200);
-    $response->assertViewIs('posts.index');
+    $response->assertViewIs('home');
     $response->assertSee('Nothing here yet!');
 });
