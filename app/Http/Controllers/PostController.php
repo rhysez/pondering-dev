@@ -13,4 +13,11 @@ class PostController extends Controller
 
         return view('home', ['posts' => $posts]);
     }
+
+    public function view(string $slug)
+    {
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        return view('posts.view', ['post' => $post]);
+    }
 }

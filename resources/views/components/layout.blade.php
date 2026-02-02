@@ -37,7 +37,7 @@
     </nav>
 
     <div class="flex justify-center">
-        <main class="p-6 lg:w-1/2">
+        <main class="p-6">
             {{ $slot }}
         </main>
     </div>

@@ -19,7 +19,7 @@ class PostFactory extends Factory
         return [
             'id' => $this->faker->uuid(),
             'title' => $this->faker->sentence(),
-            'body' => $this->faker->paragraph(),
+            'body' => $this->faker->paragraph(30),
             'slug' => $this->faker->slug(),
         ];
     }

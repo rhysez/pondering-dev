@@ -32,3 +32,13 @@ test('can see the correct message if there are no posts', function () {
     $response->assertViewIs('home');
     $response->assertSee('Nothing here yet!');
 });
+
+test('can retrieve a single post', function () {
+   $post = Post::factory()->create();
+
+   $response = $this->get('/posts/'.$post->slug);
+
+   $response->assertStatus(200);
+   $response->assertViewIs('posts.view');
+   $response->assertSee($post->title);
+});
