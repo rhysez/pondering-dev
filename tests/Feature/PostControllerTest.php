@@ -16,7 +16,7 @@ test('can retrieve a list of posts', function () {
     Post::factory()->create(['title' => $title]);
     Post::factory()->count(4)->create();
 
-    $response = $this->get('/posts');
+    $response = $this->get('/');
 
     $response->assertStatus(200);
     $response->assertViewIs('home');
@@ -26,7 +26,7 @@ test('can retrieve a list of posts', function () {
 });
 
 test('can see the correct message if there are no posts', function () {
-    $response = $this->get('/posts');
+    $response = $this->get('/');
 
     $response->assertStatus(200);
     $response->assertViewIs('home');
