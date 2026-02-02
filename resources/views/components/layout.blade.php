@@ -30,7 +30,7 @@
         </a>
 
         <ul class="flex items-center space-x-2 lg:text-base text-sm">
-            <a href="{{ route('home') }}" class="text-neutral-100 transition-colors px-5 py-1 border-2 border-neutral-800 rounded-full bg-neutral-800 hover:bg-red-500 hover:border-red-400">
+            <a href="{{ route('about') }}" class="text-neutral-100 transition-colors px-5 py-1 border-2 border-neutral-800 rounded-full bg-neutral-800 hover:bg-red-500 hover:border-red-400">
                 <li>About</li>
             </a>
         </ul>

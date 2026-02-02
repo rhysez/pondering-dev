@@ -1,6 +1,6 @@
 <x-layout>
     @if (! count($posts))
-        <p>Nothing here yet!</p>
+        <p>Hmm, nothing here yet.</p>
     @else
         <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-4">
             @foreach($posts as $post)

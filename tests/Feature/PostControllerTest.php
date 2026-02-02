@@ -30,7 +30,7 @@ test('can see the correct message if there are no posts', function () {
 
     $response->assertStatus(200);
     $response->assertViewIs('home');
-    $response->assertSee('Nothing here yet!');
+    $response->assertSee('Hmm, nothing here yet.');
 });
 
 test('can retrieve a single post', function () {
@@ -41,4 +41,5 @@ test('can retrieve a single post', function () {
    $response->assertStatus(200);
    $response->assertViewIs('posts.view');
    $response->assertSee($post->title);
+   $response->assertSee(substr($post->body, 0, 200));
 });
