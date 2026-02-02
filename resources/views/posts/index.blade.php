@@ -1,4 +1,7 @@
 <div>
-    <!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
-    <p>{{$posts->first()->title}}</p>
+    @if (! count($posts))
+        <p>Nothing here yet!</p>
+    @else
+        <p>{{$posts->last()->title}}</p>
+    @endif
 </div>
