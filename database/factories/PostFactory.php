@@ -16,11 +16,15 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $title = $this->faker->sentence();
+        $wordsInTitle = explode(' ', $title);
+        $slug = strtolower(implode('-', $wordsInTitle));
+
         return [
             'id' => $this->faker->uuid(),
-            'title' => $this->faker->sentence(),
+            'title' => $title,
             'body' => $this->faker->paragraph(30),
-            'slug' => $this->faker->slug(),
+            'slug' => $slug,
         ];
     }
 }
