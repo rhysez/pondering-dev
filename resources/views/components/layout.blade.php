@@ -20,27 +20,31 @@
     @endif
 </head>
 <body class="text-[#1b1b18] min-h-screen bg-amber-50">
-<header>
-    <nav class="flex items-center justify-center space-x-2 p-2 sticky">
-        <a href="{{ route('home') }}">
-            <div class="relative flex items-center space-x-1.5 px-4 py-1.5 text-neutral-800 hover:text-red-500 transition-colors">
-                <h1 class="font-bold lg:text-3xl text-xl">pondering dev.</h1>
-                <x-lucide-bubbles class="w-4 h-4 absolute top-0 right-2" />
-            </div>
-        </a>
+   <header>
+       <nav class="flex items-center justify-center space-x-2 p-2">
+           <a href="{{ route('home') }}">
+               <div class="relative flex items-center space-x-1.5 px-4 py-1.5 text-neutral-800 hover:text-red-500 transition-colors">
+                   <h1 class="font-bold lg:text-3xl text-xl">pondering dev.</h1>
+                   <x-lucide-bubbles class="w-4 h-4 absolute top-0 right-2" />
+               </div>
+           </a>
 
-        <ul class="flex items-center space-x-2 lg:text-base text-sm">
-            <a href="{{ route('about') }}" class="text-neutral-100 transition-colors px-5 py-1 border-2 border-neutral-800 rounded-full bg-neutral-800 hover:bg-red-500 hover:border-red-400">
-                <li>About</li>
-            </a>
-        </ul>
-    </nav>
+           <ul class="flex items-center space-x-2 lg:text-base text-sm">
+               <a href="{{ route('about') }}" class="text-neutral-100 transition-colors px-5 py-1 border-2 border-neutral-800 rounded-full bg-neutral-800 hover:bg-red-500 hover:border-red-400">
+                   <li>About</li>
+               </a>
+           </ul>
+       </nav>
+   </header>
 
     <div class="flex justify-center">
         <main class="p-6">
             {{ $slot }}
         </main>
     </div>
-</header>
+
+    <footer class="p-6 text-neutral-800 text-center">
+        © 2026 – {{\Carbon\Carbon::now()->year}} Rhys Hodgson
+    </footer>
 </body>
 </html>

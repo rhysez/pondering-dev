@@ -10,10 +10,34 @@
         </article>
         <div class="space-y-6 mt-4">
             <h4 class="text-neutral-800 text-2xl font-extrabold">Comments ({{$post->comments->count()}})</h4>
+            <div class="mt-8">
+                <h3 class="font-bold text-lg">Leave a comment</h3>
+
+                <form action="{{ route('comments.store', $post->id) }}" method="POST" class="mt-4">
+                    @csrf
+
+                    <div class="mb-4">
+                        <textarea
+                            name="body"
+                            rows="3"
+                            class="w-full border-2 p-2 rounded focus:outline-2 focus:outline-offset-2 focus:outline-red-500 @error('body') border-red-500 @enderror"
+                            placeholder="What are your thoughts?"
+                        >{{ old('body') }}</textarea>
+
+                        @error('body')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <button type="submit" class="bg-neutral-800 text-white px-4 py-2 rounded-full hover:bg-red-500 transition-colors">
+                        Post Comment
+                    </button>
+                </form>
+            </div>
             <div class="flex flex-col space-y-2">
                 @foreach($post->comments as $comment)
-                    <div class="p-2 bg-neutral-800 text-neutral-100 rounded-md space-y-4 text-sm">
-                        <p class="font-bold">{{$comment->body}}</p>
+                    <div class="p-2 space-y-2 text-sm">
+                        <p class="font-semibold italic">{{$comment->body}}</p>
                         <span class="italic font-light">
                             by a cool person on {{\Carbon\Carbon::create($comment->created_at)->toFormattedDateString()}}
                         </span>

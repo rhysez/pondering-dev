@@ -12,6 +12,8 @@ class Comment extends Model
     /** @use HasFactory<\Database\Factories\CommentFactory> */
     use HasFactory, HasUuids;
 
+    protected $fillable = ['body', 'post_id'];
+
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);

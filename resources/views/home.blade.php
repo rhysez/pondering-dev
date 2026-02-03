@@ -10,9 +10,12 @@
                 >
                     <h2 class="font-bold text-3xl">{{substr($post->title, 0, 22)}}...</h2>
                     <article>{{substr($post->body, 0, 220)}}...</article>
-                    <div class="flex items-center justify-end gap-1">
-                        <x-lucide-message-circle class="w-5 h-5 text-neutral-100" />
-                        <span class="text-neutral-100">{{$post->comments->count()}}</span>
+                    <div class="flex items-center justify-between mt-auto">
+                        <span class="text-xs">added {{\Carbon\Carbon::create($post->created_at)->toFormattedDateString()}}</span>
+                        <div class="flex items-center justify-end gap-1">
+                            <x-lucide-message-circle class="w-5 h-5 text-neutral-100" />
+                            <span class="text-neutral-100">{{$post->comments->count()}}</span>
+                        </div>
                     </div>
                 </a>
             @endforeach

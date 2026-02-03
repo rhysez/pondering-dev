@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,3 +10,4 @@ Route::get('/about', function () {
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/posts/{slug}', [PostController::class, 'view'])->name('posts.view');
+Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
