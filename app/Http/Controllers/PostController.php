@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::all();
+        $posts = Post::with('comments')->latest()->get();
 
         return view('home', ['posts' => $posts]);
     }
@@ -18,6 +18,6 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $slug)->firstOrFail();
 
-        return view('posts.view', ['post' => $post]);
+        return view('posts.view', ['post' => $post->load('comments')]);
     }
 }

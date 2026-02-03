@@ -16,7 +16,7 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        $title = $this->faker->sentence();
+        $title = $this->faker->realTextBetween(10, 20);
         $wordsInTitle = explode(' ', $title);
         $slug = strtolower(implode('-', $wordsInTitle));
 

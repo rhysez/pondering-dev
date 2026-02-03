@@ -8,5 +8,18 @@
         <article class="lg:text-lg text-base">
             {{$post->body}}
         </article>
+        <div class="space-y-6 mt-4">
+            <h4 class="text-neutral-800 text-2xl font-extrabold">Comments ({{$post->comments->count()}})</h4>
+            <div class="flex flex-col space-y-2">
+                @foreach($post->comments as $comment)
+                    <div class="p-2 bg-neutral-800 text-neutral-100 rounded-md space-y-4 text-sm">
+                        <p class="font-bold">{{$comment->body}}</p>
+                        <span class="italic font-light">
+                            by a cool person on {{\Carbon\Carbon::create($comment->created_at)->toFormattedDateString()}}
+                        </span>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </main>
 </x-layout>
