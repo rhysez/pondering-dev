@@ -37,7 +37,7 @@
             <div class="flex flex-col space-y-2">
                 @foreach($post->comments as $comment)
                     <div class="p-2 space-y-2 text-sm">
-                        <p class="font-semibold italic">{{$comment->body}}</p>
+                        <p class="font-semibold">{{$comment->body}}</p>
                         <span class="italic font-light">
                             by a cool person on {{\Carbon\Carbon::create($comment->created_at)->toFormattedDateString()}}
                         </span>

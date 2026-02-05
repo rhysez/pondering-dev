@@ -14,6 +14,7 @@ class CommentFactory extends Factory
      * Define the model's default state.
      *
      * @return array<string, mixed>
+    feat: create POST form for creating a comment on a post
      */
     public function definition(): array
     {
