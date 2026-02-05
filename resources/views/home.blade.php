@@ -8,7 +8,11 @@
                     href="{{ route('posts.view', ['slug' => $post->slug]) }}"
                     class="transition-colors hover:bg-red-500 hover:outline-red-500 flex flex-col gap-4 text-neutral-100 bg-neutral-900 outline-4 outline-offset-2 px-6 py-4 rounded-md"
                 >
-                    <h2 class="font-bold text-3xl">{{substr($post->title, 0, 22)}}...</h2>
+                    @if(strlen($post->title >= 40))
+                        <h2 class="font-bold text-3xl">{{substr($post->title, 0, 40)}}...</h2>
+                    @else
+                        <h2 class="font-bold text-3xl">{{$post->title}}</h2>
+                    @endif
                     <article>{{substr($post->body, 0, 220)}}...</article>
                     <div class="flex items-center justify-between mt-auto">
                         <span class="text-xs">added {{\Carbon\Carbon::create($post->created_at)->toFormattedDateString()}}</span>
